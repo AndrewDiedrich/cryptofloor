@@ -1,7 +1,10 @@
 const express = require('express'); //will use common js modules
 //const keys = require('./config/keys');
 const home = require('./routes/home');
+const coinMarketCap = require('./routes/coinMarketCap');
 const app = express();
+const axios = require('axios');
+//const mongo = require('./mongo');
 
 /**BUILT IN */
 app.use(express.json()); //express.json() returns func with 3 params req, res, next parses req.body and if josn object sets it to req.body 
@@ -10,8 +13,9 @@ app.use(express.urlencoded( { extended: true}));
 //serve static files, arg is folder name, css/img/ etc.
 app.use(express.static('public'));
 
-app.use('/', home);
 
+app.use('/', home);
+app.use('/api/coinmarketcap', coinMarketCap);
 
 
 if (process.env.NODE_ENV === 'production') {
