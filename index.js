@@ -1,7 +1,7 @@
 const express = require('express'); //will use common js modules
 //const keys = require('./config/keys');
 const home = require('./routes/home');
-const coinMarketCap = require('./routes/coinMarketCap');
+//const coinMarketCap = require('./routes/coinMarketCap');
 const app = express();
 const axios = require('axios');
 //const mongo = require('./mongo');
@@ -14,8 +14,8 @@ app.use(express.urlencoded( { extended: true}));
 app.use(express.static('public'));
 
 
-app.use('/', home);
-app.use('/api/coinmarketcap', coinMarketCap);
+app.use('/api', home);
+//app.use('/api/coinmarketcap', coinMarketCap);
 
 
 if (process.env.NODE_ENV === 'production') {

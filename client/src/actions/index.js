@@ -30,7 +30,7 @@ import { FETCH_COIN_MARKET_CAP_DATA } from './types';
 // }
 
 export const fetchCoinMarketCapData = () => async dispatch => {
-    const res = await axios.get('/api/coinmarketcap/');
+    const res = await axios.get('/api/coinall/');
 
     dispatch({ type: FETCH_COIN_MARKET_CAP_DATA, payload: res.data });
 }
