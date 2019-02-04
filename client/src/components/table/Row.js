@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Row = props => { 
-    return (
+    
+  return (
       <>
          <tr>
             <th scope="row">{props.cmc_rank}</th>

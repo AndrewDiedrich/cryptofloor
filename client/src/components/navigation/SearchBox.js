@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchTerm, searchedData } from '../../actions';
 
-
-class SearchBox extends React.Component {
-    state = {
-        term: ''
-    }
+class SearchBox extends Component {
+   
 
     onFormSubmit = (event) => {
-        event.preventDefault();
-        this.props.onSubmit(this.state.term) //this.props in class component rather then just props in funciton componente
+       event.preventDefault();
+       this.props.searchedData(); //this.props in class component rather then just props in funciton componente
     }
     
     render() {
@@ -17,9 +16,9 @@ class SearchBox extends React.Component {
                 <input 
                     className="form-control mr-sm-2" 
                     type="search" 
-                    value={this.state.term}
-                    onChange={e => this.setState({ term: e.target.value})}    
-                    placeholder="Search the Market" 
+                    value={this.props.search}
+                    onChange={e => {this.props.searchTerm(e.target.value)}} 
+                    placeholder="Search for Asset" 
                     aria-label="Search" 
                 />
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -28,5 +27,8 @@ class SearchBox extends React.Component {
     }
 }
 
-export default SearchBox;
+const mapStateToProp = (state) => {
+    return { search: state.search }
+}
+export default connect(mapStateToProp, { searchTerm, searchedData })(SearchBox);
 

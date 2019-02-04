@@ -26,7 +26,7 @@ export default class HexMap extends React.Component {
         <XYPlot
           xDomain={[40, 100]}
           yDomain={[1.5, 8]}
-          width={300}
+          width={400}
           getX={d => d.waiting}
           getY={d => d.eruptions}
           onMouseLeave={() => this.setState({hoveredNode: null})}

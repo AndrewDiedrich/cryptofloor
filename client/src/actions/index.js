@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { FETCH_COIN_MARKET_CAP_DATA } from './types';
+import { FETCH_COIN_MARKET_CAP_DATA, 
+    SEARCH_TERM,
+    SEARCHED_DATA
+    } from './types';
+//import { getScalePropTypesByAttribute } from 'react-vis/dist/utils/scales-utils';
 
 // import { SCATTER_USER } from './types';
 // import ScatterJS from 'scatterjs-core';
@@ -28,6 +32,22 @@ import { FETCH_COIN_MARKET_CAP_DATA } from './types';
   
 //     });
 // }
+
+export const searchedData = () => (dispatch, getState) => {
+    const { data, search } = getState();
+    const filterData = () => {
+        if(search !== '') {
+        return data.filter(searched => {
+            return searched.name.toLowerCase().includes(search.toLowerCase())
+        }) 
+        }
+    }
+    dispatch({ type: SEARCHED_DATA, payload: filterData()})
+}
+
+export const searchTerm = (term) => dispatch => {
+    dispatch({ type: SEARCH_TERM, payload: term})
+}
 
 export const fetchCoinMarketCapData = () => async dispatch => {
     const res = await axios.get('/api/coinall/');
