@@ -12,16 +12,17 @@ class SearchBox extends Component {
     
     render() {
         return (
-            <form className="form-inline" onSubmit={this.onFormSubmit}>
+            <form className="form-inline" onSubmit={this.onFormSubmit} autoComplete="off">
                 <input 
                     className="form-control mr-sm-2" 
                     type="search" 
                     value={this.props.search}
                     onChange={e => {this.props.searchTerm(e.target.value)}} 
-                    placeholder="Search for Asset" 
+                    placeholder="Search" 
+                    
                     aria-label="Search" 
                 />
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
             </form>
         )
     }

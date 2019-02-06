@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { FETCH_COIN_MARKET_CAP_DATA, 
     SEARCH_TERM,
-    SEARCHED_DATA
+    SEARCHED_DATA,
+    HEXMAP_DATA
     } from './types';
 //import { getScalePropTypesByAttribute } from 'react-vis/dist/utils/scales-utils';
 
@@ -33,6 +34,7 @@ import { FETCH_COIN_MARKET_CAP_DATA,
 //     });
 // }
 
+//use searched term to filter market data
 export const searchedData = () => (dispatch, getState) => {
     const { data, search } = getState();
     const filterData = () => {
@@ -45,13 +47,30 @@ export const searchedData = () => (dispatch, getState) => {
     dispatch({ type: SEARCHED_DATA, payload: filterData()})
 }
 
+//update searched term state
 export const searchTerm = (term) => dispatch => {
     dispatch({ type: SEARCH_TERM, payload: term})
 }
 
+//get coinmarket cap data from node route
 export const fetchCoinMarketCapData = () => async dispatch => {
     const res = await axios.get('/api/coinall/');
 
     dispatch({ type: FETCH_COIN_MARKET_CAP_DATA, payload: res.data });
 }
+// SEPARATE HEX MAP ACTION
+// export const hexmapData = () => (dispatch, getState) => {
+//     const { data } = getState();
+    
+//     const createHexData = () {
+//         return data.map(asset => {
+//             return asset.
+//         })
+//     }
+//     dispatch({ 
+//         type: HEXMAP_DATA, 
+//         payload: 
+//         })
+//     });
+// }
 

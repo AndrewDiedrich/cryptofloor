@@ -7,8 +7,7 @@ const keys = require('../config/dev');
 
 
 router.get('/', async (req, res) => {
-        const data = 
-        await res.send();
+        const data = await res.send();
 });
 
 module.exports = router;

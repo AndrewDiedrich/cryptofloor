@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { scatterUser } from '../actions';
+import { scatterUser } from '../../actions';
 
 class LoginScatter extends React.Component {
     componentDidMount() {

@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+/* font always in body because inherited, 
+parent el of all other child elements, and more efficienct
+then in * universial selector
+*/
+
+html {
+    //defines what 1 rem is !!!! so base and not a typography exactly
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}

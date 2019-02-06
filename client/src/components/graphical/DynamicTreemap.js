@@ -47,7 +47,7 @@ class DynamicTreemap extends Component {
       width: 350
     };
     return (
-      <div className="dynamic-treemap-example">
+      <div className="dynamic-treemap-example col-6">
         <ShowcaseButton
           onClick={() => this.setState({useCirclePacking: !useCirclePacking})}
           buttonContent={'TOGGLE CIRCLE PACK'}

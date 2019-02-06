@@ -59,8 +59,8 @@ class Table extends Component {
 
     render() {
         return (
-            <table className="table table-striped table-dark">
-            <thead>
+            <table className="table">
+            <thead className="">
                 <tr>
                 <th scope="col">MCap-Rank</th>
                 <th scope="col">Name</th>

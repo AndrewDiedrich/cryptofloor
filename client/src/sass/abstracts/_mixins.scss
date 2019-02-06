@@ -1,0 +1,8 @@
+@mixin clearfix {
+    //appends sudo after to clear floats
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

@@ -1,13 +1,14 @@
 //import axios from 'axios';
 import React, { Component } from 'react';
-//import { BrowserRouter, Route } from 'react-router-dom';
-//import { connect } from 'react-redux';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 //import data from '../api';
-
+import Login from './modals/Login';
 import NavBar from './navigation/NavBar';
 import Table from './table/Table';
 import HexMap from './graphical/HexMap';
 import DynamicTreemap from './graphical/DynamicTreemap';
+import history from '../history';
 //import LoginScatter from './LoginScatter';
 
 class App extends Component {
@@ -16,23 +17,19 @@ class App extends Component {
   render() {
     return (
       <div>
-    
-
-    <NavBar onSubmit={this.onSearchSubmit} />
-        <div>
-          <div className="row">
-            <div className="col-4">
-            <Table />
+        <Router history={history}>
+          <div>
+          <NavBar onSubmit={this.onSearchSubmit} />
+            <div className="row">
+              <Switch>
+                <div className="col-sm">
+                  <Route path="/" exact={true} component={Table} />
+                  <Route path="/user/login" exact component={Login} />
+                </div>
+              </Switch>   
+              </div>
             </div>
-            <div className="col-4">
-              <HexMap />
-            </div>
-            <div className="col-4">
-              <DynamicTreemap />
-            </div>
-          </div>
-            {/* <AssetList assets={this.state.data}  /> */}
-        </div>
+        </Router>
       </div>
     );
   }
