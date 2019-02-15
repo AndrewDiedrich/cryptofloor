@@ -23,7 +23,7 @@ function _getRandomData(total) {
   };
 }
 
-class DynamicTreemap extends Component {
+export default class DynamicTreemapmap extends React.Component {
   state = {
     hoveredNode: false,
     treemapData: _getRandomData(20),
@@ -47,7 +47,7 @@ class DynamicTreemap extends Component {
       width: 350
     };
     return (
-      <div className="dynamic-treemap-example col-6">
+      <div className="dynamic-treemap-example">
         <ShowcaseButton
           onClick={() => this.setState({useCirclePacking: !useCirclePacking})}
           buttonContent={'TOGGLE CIRCLE PACK'}
@@ -59,9 +59,3 @@ class DynamicTreemap extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return { data: state.data }
-}
-
-export default connect(mapStateToProps)(DynamicTreemap);

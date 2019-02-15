@@ -1,5 +1,6 @@
 const express = require('express'); //will use common js modules
-
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const home = require('./routes/home');
 
 const app = express();
@@ -7,12 +8,15 @@ const app = express();
 //const mongo = require('./mongo');
 
 /**BUILT IN */
+//docker middleware
+app.use(morgan('combined'))
+//
 app.use(express.json()); //express.json() returns func with 3 params req, res, next parses req.body and if josn object sets it to req.body 
 //middleware function - parese incoming request with url encoded payloads // key=value&key=value parses to req.body
 app.use(express.urlencoded( { extended: true}));
 //serve static files, arg is folder name, css/img/ etc.
 app.use(express.static('public'));
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 // app.use(
 //   cookieSession({
 //     maxAge: 30 * 24 * 60 * 60 * 1000,
