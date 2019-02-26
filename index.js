@@ -1,9 +1,14 @@
+'use strict';
+
+require('dotenv').config();
+
 const express = require('express'); //will use common js modules
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const home = require('./routes/home');
-
+const contact = require('./routes/contact');
 const app = express();
+const {PORT, CLIENT_ORIGIN} = require('./config');
 
 //const mongo = require('./mongo');
 
@@ -17,6 +22,7 @@ app.use(express.urlencoded( { extended: true}));
 //serve static files, arg is folder name, css/img/ etc.
 app.use(express.static('public'));
 app.use(bodyParser.json());
+
 // app.use(
 //   cookieSession({
 //     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -24,7 +30,9 @@ app.use(bodyParser.json());
 //   })
 // );
 
+/**********Routes *********/
 app.use('/api', home);
+app.use('/api', contact);
 //app.use('/api/coinmarketcap', coinMarketCap);
 
 
@@ -43,7 +51,7 @@ if (process.env.NODE_ENV === 'production') {
 
 //production use process.env.port linked to heroku env variable, 
 //development use 5000, 
-const PORT = process.env.PORT || 5000;
+//const PORT = PORT;
 app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`)
 });
