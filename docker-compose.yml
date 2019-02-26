@@ -1,0 +1,27 @@
+version: '3.7'
+services: 
+  cryptofloor-server:
+    container_name: backend
+#    image: node:8.11.3
+    build: ./
+    command: npm start
+    working_dir: /urs/src/cryptofloor
+    #env vars
+    environment: 
+      #db access vars
+      #env files
+    links: mongo  
+    ports: 
+      - "5000:5000"
+      #volume takes current dir and map to container
+      #contianer file system will see changes and update
+      #Listens to changes updates container
+    volumes:
+      - ./:/urs/src/cryptofloor
+
+##create mongo service
+mongo:
+  #container_name: mongo
+  image: mongo
+  ports: 
+    - "27017:27017"

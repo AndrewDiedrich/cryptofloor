@@ -1,6 +1,6 @@
 import React from 'react';
 //import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import ModalTemplate from './ModalTemplate';
 import history from '../../history';
 //import { fetchStream, deleteStream } from '../../actions';
@@ -22,7 +22,8 @@ class Login extends React.Component {
             //     <Link to='/' className='ui button'>Cancel</Link>
             // </>
             <>
-            <button>Cancel</button>
+            <button className="btn btn-warning">Login</button>
+            <button className="btn btn-primary">Cancel</button>
             </>
         );
     }

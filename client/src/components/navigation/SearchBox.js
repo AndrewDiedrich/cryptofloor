@@ -5,25 +5,32 @@ import { searchTerm, searchedData } from '../../actions';
 class SearchBox extends Component {
    
 
-    onFormSubmit = (event) => {
+    //takes searchTerm and dispatches filtered data list to SearchedData in store
+    onInputSubmit = (event) => {
        event.preventDefault();
-       this.props.searchedData(); //this.props in class component rather then just props in funciton componente
+       this.props.searchedData(); 
     }
     
     render() {
         return (
-            <form className="form-inline" onSubmit={this.onFormSubmit} autoComplete="off">
-                <input 
-                    className="form-control mr-sm-2" 
+            //use onFormSubmit
+           
+            <div class="ui search">
+            <div class="ui icon input"> 
+            <form onSubmit={this.onInputSubmit} autoComplete="off">
+                <input        
                     type="search" 
                     value={this.props.search}
+                    //dispatch searchTerm action upon typing 
                     onChange={e => {this.props.searchTerm(e.target.value)}} 
-                    placeholder="Search" 
-                    
+                    placeholder="Search..."                
                     aria-label="Search" 
                 />
-                <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-            </form>
+                </form>
+                <i className="search link icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
         )
     }
 }
