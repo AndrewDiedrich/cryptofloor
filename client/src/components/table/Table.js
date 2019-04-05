@@ -8,7 +8,9 @@ class Table extends Component {
     componentDidMount() { 
         //this.loading()
         this.props.fetchCoinMarketCapData();
+    
         //console.log('first api call',this.props.data);
+     
     }
 
     // async loading = () => {
@@ -59,6 +61,7 @@ class Table extends Component {
 
     render() {
         return (
+            <>
             <table className="table">
             <thead className="">
                 <tr>
@@ -73,15 +76,17 @@ class Table extends Component {
             {this.renderRow()}
             </tbody>
             </table>
-            
+        </>   
         )
     }
 }
   
 const mapStateToProps = (state) => {
-    return { data: state.data, 
+    return { 
+        data: state.data, 
         searchedData: state.searchedData,
-        search: state.search };
+        search: state.search, 
+    };
 }
 
 export default connect(mapStateToProps, { fetchCoinMarketCapData, searchedData })(Table);

@@ -1,0 +1,40 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "server": "nodemon index.js",
+        "client": "npm run start ../client",
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "test": "jest"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "aws-sdk": "^2.405.0",
+        "axios": "^0.18.0",
+        "babel-jest": "^23.6.0",
+        "body-parser": "^1.17.2",
+        "cheerio": "^1.0.0-rc.2",
+        "concurrently": "^4.1.0",
+        "cookie-session": "^2.0.0-beta.2",
+        "d3-node": "^2.1.0",
+        "d3node-piechart": "0.0.10",
+        "dotenv": "^6.2.0",
+        "express": "^4.16.4",
+        "jest": "^23.6.0",
+        "migrate-mongoose": "^3.2.2",
+        "mongoose": "^5.4.10",
+        "morgan": "^1.9.1",
+        "nodemon": "^1.18.9",
+        "passport": "^0.3.2",
+        "passport-google-oauth20": "^1.0.0",
+        "passport-linkedin-oauth2": "^1.6.1",
+        "path-parser": "^2.0.2",
+        "puppeteer": "^1.13.0",
+        "redis": "^2.8.0",
+        "uuid": "^3.2.1"
+    }
+}
