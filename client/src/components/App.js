@@ -4,7 +4,7 @@ import Landing from './mainRoutes/Landing';
 
 class App extends Component {
 
-  
+
   render() {
     return (
       <>

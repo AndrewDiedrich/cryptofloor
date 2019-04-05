@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { FETCH_COIN_MARKET_CAP_DATA, 
+import { 
+    FETCH_COIN_MARKET_CAP_DATA, 
+    FETCH_LINKEDIN_PROFILE_IMG,
     SEARCH_TERM,
     SEARCHED_DATA,
     HEXMAP_DATA
@@ -57,6 +59,13 @@ export const fetchCoinMarketCapData = () => async dispatch => {
     const res = await axios.get('/api/coinall/');
 
     dispatch({ type: FETCH_COIN_MARKET_CAP_DATA, payload: res.data });
+}
+
+export const fetchAssetTeamImg = () => async dispatch => {
+    
+    const res = await axios.get('/api/s3linkedin/Michael%20Parsons');
+    console.log('api/s3linkedin res: ', res)
+    dispatch({ type: FETCH_LINKEDIN_PROFILE_IMG, payload: res.data });
 }
 // SEPARATE HEX MAP ACTION
 // export const hexmapData = () => (dispatch, getState) => {

@@ -1,0 +1,28 @@
+ [{
+         "MCUR": "ADA",
+         "MEMID": 2,
+         "MEMNAME": "Toshi Miyatake",
+         "MEMPOS": "Cardano Foundation - Division Japan",
+         "MEMLINKIN": "https://www.linkedin.com/in/toshi-miyatake-575493152/",
+         "MEMOTHLINK": "-",
+         "MEMEMAIL": "toshi@cardanohub.org"
+     },
+     {
+         "MCUR": "ADA",
+         "MEMID": 3,
+         "MEMNAME": "Michael Parsons",
+         "MEMPOS": "Chairman & Executive Director | Founder",
+         "MEMLINKIN": "https://www.linkedin.com/in/michaelparsons/",
+         "MEMOTHLINK": "-",
+         "MEMEMAIL": "michael.parsons@cardanofoundation.org"
+     },
+     {
+         "MCUR": "AE",
+         "MEMID": 1,
+         "MEMNAME": "Yanislav Malahov",
+         "MEMPOS": "Founder",
+         "MEMLINKIN": "https://www.linkedin.com/in/yanislav-malahov-5025b712/",
+         "MEMOTHLINK": "-",
+         "MEMEMAIL": "yani@aeternity.com"
+     }
+ ]
